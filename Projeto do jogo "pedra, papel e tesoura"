@@ -1,0 +1,288 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,			
+	openright,			
+	preciso)
+	twoside,			
+	a4paper,		
+	english,			
+	french,				
+	spanish,			
+	brazil,				
+	]{abntex2}
+
+% ---
+\usepackage{lmodern}			
+\usepackage[T1]{fontenc}		
+\usepackage[utf8]{inputenc}	
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{minted}
+\large
+\title{C++ Assignment 1}
+
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Projeto  do jogo de Pedra, Papel e Tesoura.}
+\autor{Myke Jóse Rodrigues da Silva e Eduardo Amaro Maciel}
+
+\local{Brasil}
+\data{2020}
+\instituicao{%
+  Universidade do Vale do Itajaí, Campus Itajaí - SC   
+  \par
+ Curso de ciência da computação  
+  \par
+  Programa de Graduação}
+\tipotrabalho{Trabalho de Introdução a ciêcia da computação}
+
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto de pesquisa},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+
+\selectlanguage{brazil}
+% ---
+\imprimircapa
+% ---
+% ---
+\imprimirfolhaderosto
+% ---
+
+%  ``Se exigido pela entidade, apresentar os dados curriculares do autor em
+%     folha ou página distinta após a folha de rosto.''
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter{Introdução} 
+
+O jogo pedra, papel ou tesoura, é por sinal, um dos jogos mais conhecidos pelo mundo todo, sendo famosa tanto pelos mais jovens como os mais velhos. 
+
+Conhecida em algumas regiões do mundo também como jokenpô, é uma brincadeira antiga que se desenvolveu na China e ganhou bastante compreensão em meados do século XIX. Sendo uma brincadeira amigável e ou esportiva realizada entre duas ou mais pessoas, usando métodos de decisão e seleção, tendo como requisitos primários e únicos apenas suas próprias habilidades e sorte.
+
+Com este relatório venho mostrar que é possível, brincadeira, aprendizado e tecnologia se mesclarem de um jeito que venha a se desenvolver o raciocínio logico brincando e caminhando juntamente a cultura. Para isso damos ênfase e objetivo ao relatório que será desenvolver este jogo tão popular e conhecido em forma de algoritmo utilizando a linguagem de programação C++.
+
+\chapter{Implimentação}
+\section{PROJETO}  
+
+Em um jogo de pedra, papel ou tesoura, temos somente um vencedor se for jogado por duas pessoas, e para isso devemos tomar a decisão se iremos jogar pedra, papel ou a tesoura, podendo resultar somente na vitória de um dos dois jogadores. a  demonstra como funciona este jogo \href{imagem.png}. 
+
+
+\section{figura 1}
+\begin{center}
+\includegraphics[]{imagem.png}
+
+\textbf{figura 1:} pedra, papel e tesoura.
+\end{center} 
+
+Para isso temos em mente que, para o desenvolvimento deste projeto usaremos funções condicionais \textbf{if e else} que são o que nos habilita a tomar decisões dentro do nosso código ou seja para controlar o fluxo de execução do programa de forma a selecionar qual parte do algoritmo deve ser executada. Sendo que o programa deverá perguntar ao usuário qual opção ele deseja, no caso pedra, papel ou a tesoura. Se os dois jogadores escolherem a mesma opção o programa deverá retornar aos usuários “empate”, caso contrário haverá uma expressão logica que irá escolher entre o jogador 1 e o jogador 2 qual foi o ganhador.O programa deverá imprimir na tela caso o jogador 1 ganhe “jogador 1 ganhou” e caso contrário “O jogador 2 ganhou”.  
+
+\centering
+\includegraphics[]{diagrama.png}
+
+\textbf{figura 2:} diagrama. 
+
+\raggedright
+Para alcançarmos o objetivo nosso, temos que entender a lógica booleana, que é uma ramificação da ciência da computação, que lida com valores verdadeiro e falso (TRUE e FALSE),independente de qual linguagem de programação será usada. 
+Quando falamos de lógica booleana é muito importante mencionar a tabela verdade, que utilizamos para entender corretamente os operadores \textbf{\&\& (AND) e || (OR).}
+Na tabela verdade do operador \&\&, a decisão lógica apenas terá retorno verdadeiro caso todas as decisões em conjunto retornarem verdadeiro. 
+
+\section{tabela 1} 
+\begin{enumerate}
+\item tabela 1
+
+\centering
+\begin {tabular} {|c|c|c|}
+\&\& & TRUE & FALSE \\
+TRUE & TRUE & FALSE  \\
+FALSE & FALSE & FALSE \\
+    \end{tabular}
+\end{enumerate}
+
+Já a tabela verdade do operador ||, terá retorno verdadeiro se pelo menos uma das decisões for verdadeira. 
+
+\section{tabela 2}
+
+\centering 
+\begin {tabular}{|c|c|c|}
+    
+|| & TRUE & FALSE \\
+TRUE & TRUE & TRUE \\
+FALSE & TRUE & FALSE\\
+    \end{tabular} \newline 
+   
+\raggedright
+Para implementação, exemplos e códigos apresentados serão gerados através do editor de texto denominado Visual Studio Code. Você pode baixar o Visual Studio Code através do link: \url{https://code.visualstudio.com/}, e para temos maior eficácia no projeto usaremos o MinGW, que é o seu conjunto de ferramentas GNU, ele pode ser baixado através do link: \url{http://www.mingw.org/}.
+\newline
+No momento em que está sendo relatado este projeto, os dois Softwares são totalmente gratuitos para download. O editor de texto \textbf{(VSCode)} pode ser instalado nos sistemas operacionais Windows assim como  sistemas operacionais Linux e MAC.
+\newline Também à em mente que poderíamos listar outros editores de texto como Atom,Notepad++ ou Sublimet Text para conseguirmos alcançar o mesmo resultado.
+
+
+
+\chapter {Implementação}
+Já dentro do Visual Studio Code logo após temos criado o projeto e nomeá-lo com a extensão do C++ que é (.cpp), incluímos a seguinte biblioteca (\#include <iostream>) que será usada para os recursos de entrada e saída. Logo depois incluímos o comando (using namespace std) que servirá para definir um “espaço de nomes”. Logo depois digitamos o (int main () ) que servira como ponto de entrada do programa. É importante salientar que comentários serão feitos dentro do código usando (//).
+
+As variáveis como sendo \textbf{inteiras} (int). Usaremos apenas 2 variáveis, uma para o primeiro jogador (j1), e a outra para o segundo jogador (j2). Após isso podemos usamos o comando (cout <<) que representa a saída no C++, usarmos ele para imprimir mensagens durante todo o código. Daremos três opções aos usuários, pedra, papel ou tesoura que serão representados por 1, 2 e 3, e serão armazenadas e suas respectivas variáveis. Ao final de cada linha usamos o \textbf{endl} para indicar a quebra e o final da linha. Para o armazenamento usa-se o operador de extração (cin >>) que servirá para coletar o número digitado pelos usuários. Usaremos as mesmas representações para os dois jogadores mudando as partes em que cada jogador um deve interagir com o terminal.
+
+Agora fazemos as partes de decisão usando as estruturas de decisão \textbf{if e else if}, juntamente com os operadores lógicos \&\& e ||. Nesta parte eles serão muito importantes pois irão imprimir na tela quem foi o vencedor da partida. Então fazemos as possibilidades que serão três.
+
+\section{tabela 3}
+\centering
+\begin {tabular}{|c|c|}
+J1 & J2 \\
+3 & 2  \\
+2 & 1 \\
+1 & 3 \\
+\end{tabular}
+\newline 
+
+\raggedright Essas três possibilidades serão suficientes para que o computador verifique as jogadas e imprima quem será o vencedor. Não podemos esquecer que caso as jogadas sejam iguais o terminal deve exibir “empate”.
+\chapter{Algoritmo completo}
+\begin{minted}[frame=lines, linenos, fontsize=\large]
+{c++}
+#include <iostream>
+using namespace std;
+
+int main () {
+int j1, j2;
+cout << "jogador 1 escolha" << endl;
+cout << " 1 - pedra " << endl;
+cout << " 2 - papel " << endl;
+cout << " 3 - tesoura " << endl;
+cin >> j1;
+
+system("cls"); 
+
+cout << "jogador 2 escolha" << endl;
+cout << " 1 - pedra " << endl;
+cout << " 2 - papel " << endl;
+cout << " 3 - tesoura " << endl;
+cin >> j2;
+    
+if (j1 == j2){
+cout << "empate" << endl;
+}if ((j1==3 && j2==2) || (j1==2 && j2==1) || (j1==1 && j2==3)){
+cout << "jogador 1 ganhou" << endl;
+}else if((j2==3 && j1==2) || (j2==2 && j1==1) || (j2==1 && j1==3)){
+cout << "jogador 2 ganhou" << endl;
+}
+return 0;
+\end{minted}
+\chapter{Verificação}
+Com o algoritmo pronto agora vamos para a parte de testes, onde iremos analisar, verificar e estudá-lo para ver e corrigir caso houver ou venha a ocorrer algum erro durante a compilação do código. A tabela (4) mostrará qual será a saída caso o jogador 1 ganhe, enquanto a tabela (5) mostra qual será a saída caso jogador 2 ganhe. 
+\section{tabela 4}
+\begin {tabular}{|c|c|c|}
+J1 & J2 & QUEM VAI VENCER \\
+3 & 2 & J1 \\
+2 & 1 & J1 \\
+1 & 3 & J1 \\
+J1==J2 & J2==J1 & EMPATE \\
+\end{tabular}
+\section{tabela 5}
+
+\begin {tabular}{|c|c|c|}
+J2 & J1 & QUEM VAI VENCER \\
+3 & 2 & J2 \\
+2 & 1 & J2 \\
+1 & 3 & J2 \\
+J1==J2 & J2==J1 & EMPATE \\
+\end{tabular} \newline  
+
+
+Para o demonstrar o funcionamento do algoritmo desenvolvido, fazermos testes dentro do terminal do Visual Studio Code apertando (F6) do teclado onde irá começar a compilar o código.
+Escolhemos a opção 1 (pedra) para o jogador 1, e logo após darmos Enter a parte acima do terminal será limpa graças ao comando (system(“cls”);) que usamos na linha 15, para que o jogador 2 não saiba qual foi a opção escolhida pelo seu adversário.
+
+\begin{center}
+\includegraphics[]{JOGADOR 1.png} 
+\end{center}
+
+
+Em seguida a opção 2 (papel) para o jogador 2. 
+\section{figura 2}
+\begin{center}
+\includegraphics[]{JOGADOR 2.png} 
+\end{center}
+
+O resultado esperado é que, o jogador 2 ganhe, pois, papel envolve pedra.
+\section{figure 3}
+\begin{center}
+\includegraphics[]{JOG 4.png} 
+\end{center}
+
+Feito isso vamos para a parte onde os dois jogares escolhem as mesmas opções. Escolhemos a opção 3 para os dois jogadores.
+
+\section{figure 4}
+\includegraphics[]{JOG 5.png}
+\section{figure 5}
+\includegraphics[]{JOG 6.png}
+
+O resultado esperado no terminal é que seja imprimido “empate”.
+\section{figure 6}
+\begin{center}
+\includegraphics[]{JOG.png} 
+\end{center}
+
+Caso ocorra algum erro, verifique seu código e corrigia-o, caso não esteja compreendendo aonde se localiza o erro sugiro o uso do DEBUGGER (depuração) do Visual Studio Code, pressionando as seguintes teclas: Ctrl + Shift + D, ele irá mostrar o passo a passo do que está ocorrendo em cada linha do seu código.
+
+
+
+
+
+\chapter {Conclusão}
+
+\parindent=40pt\relax  Este relatório teve como principais objetivos testar as capacidades de escrita de texto, desenvolvimento de código, e habilidades de raciocínio lógico envolvidos em conjunto diretamente com aprendizado, cultura e tecnologia, sendo desenvolvido um jogo de pedra, papel ou tesoura utilizando como principais ferramentas o editor de código VSCode junto a linguagem de programação C++. 
+
+\parindent=40pt\relax Conforme a elaboração do código percebeu-se que, futuramente o código necessitaria de uma implementação, pois quando desenvolvido contamos com o bom senso do usuário em digitar entre 1, 2 ou 3. Para resolver este problema poderíamos inserir o comando \textbf{while} (comando de repetição / laço) em uma certa parte do código para verificar se os valores correspondem, caso não correspondesse, iria informá-los que o valor digitado é invalido e iria pedir para redigitá-lo novamente.
+
+\parindent=40pt\relax Tendo em vista que o objetivo primário que seria desenvolver um jogo pedra, papel ou tesoura foi alcançado, desenvolvemos com ele a parte de projeto, implementação e verificação de um código juntamente com sua documentação adequada e especificada.
+\end{document}
